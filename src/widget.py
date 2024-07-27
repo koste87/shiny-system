@@ -1,9 +1,19 @@
 # src/widget.py
 
 from masks import get_mask_card_number, get_mask_account
+from typing import Any
 
 
 def mask_account_card(info: str) -> str:
+    """
+    Masks account or card information.
+
+    Args:
+        info (str): Account or card information.
+
+    Returns:
+        str: Masked account or card information.
+    """
     if info.startswith("Счет"):
         return f"Счет {get_mask_account(info.split()[1])}"
     else:
@@ -17,6 +27,15 @@ from datetime import datetime
 
 
 def get_date(date_str: str) -> str:
+    """
+    Converts an ISO 8601 date string to a formatted date string.
+
+    Args:
+        date_str (str): ISO 8601 date string.
+
+    Returns:
+        str: Formatted date string in the format 'dd.mm.yyyy'.
+    """
     date_obj = datetime.fromisoformat(date_str)
     return date_obj.strftime("%d.%m.%Y")
 
