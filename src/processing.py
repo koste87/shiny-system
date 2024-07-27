@@ -1,6 +1,6 @@
-# src/processing.py
+from typing import List, Dict, Any
 
-def filter_by_state(data, state='EXECUTED'):
+def filter_by_state(data: List[Dict[str, Any]], state: str = 'EXECUTED') -> List[Dict[str, Any]]:
     """
     Filters a list of dictionaries by the specified state.
 
@@ -13,7 +13,8 @@ def filter_by_state(data, state='EXECUTED'):
     """
     return [entry for entry in data if entry.get('state') == state]
 
-def sort_by_date(data, reverse=True):
+
+def sort_by_date(data: List[Dict[str, Any]], reverse: bool = True) -> List[Dict[str, Any]]:
     """
     Sorts a list of dictionaries by the 'date' key.
 
